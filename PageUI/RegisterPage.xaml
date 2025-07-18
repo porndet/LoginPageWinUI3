@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LoginPageWinUI3.PageUI.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginPageWinUI3.PageUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <media:AcrylicBrush x:Name="CustomAcrylic"
+                                TintColor="#000000"
+                                TintOpacity="0.02"
+                                FallbackColor="#000000"
+                                TintLuminosityOpacity="0.03"/>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource CustomAcrylic}"
+          CornerRadius="12">
+        <StackPanel Orientation="Vertical"
+                Spacing="15"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch"
+                Width="250">
+            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                   FontSize="35" 
+                   FontWeight="Black"
+                   TextAlignment="Center">
+            <Span><Underline>REGISTER</Underline></Span>
+            </TextBlock>
+            <TextBox Text="" PlaceholderText="Username..."/>
+            <PasswordBox PlaceholderText="Password..."/>
+            <Button Content="Register"
+                Style="{StaticResource AccentButtonStyle}" 
+                HorizontalAlignment="Center"
+                Padding="20 8"
+                x:Name="BtnRegister"
+                Click="BtnRegister_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

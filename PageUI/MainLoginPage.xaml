@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="LoginPageWinUI3.PageUI.MainLoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginPageWinUI3.PageUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
+    mc:Ignorable="d">
+
+    <Grid Background="#e6e1ff"
+          Padding="80">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <media:AcrylicBrush x:Name="CustomAcrylic"
+                                    TintColor="#FFFFFF"
+                                    TintOpacity="0.05"
+                                    FallbackColor="#FFFFFF"
+                                    TintLuminosityOpacity="0.2"/>
+                <LinearGradientBrush x:Name="Gradientbackground"
+                                     StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStopCollection>
+                        <GradientStop Color="#aca1f0" Offset="0"/>
+                        <GradientStop Color="#4b31eb" Offset="0.6"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+
+                <Storyboard x:Name="StoryboardMoveBall">
+                    <DoubleAnimation Storyboard.TargetName="TranslateEllipse1"
+                                     Storyboard.TargetProperty="X"
+                                     Duration="0:0:3.5"
+                                     AutoReverse="True"
+                                     RepeatBehavior="Forever">
+                        <DoubleAnimation.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="TranslateEllipse2"
+                                     Storyboard.TargetProperty="X"
+                                     Duration="0:0:3.5"
+                                     AutoReverse="True"
+                                     RepeatBehavior="Forever">
+                        <DoubleAnimation.EasingFunction>
+                            <ExponentialEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <Ellipse Width="50"
+                 Height="50"
+                 Fill="#4b31eb"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TranslateTransform x:Name="TranslateEllipse1" X="-20" Y="-25"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <Ellipse Width="50"
+                 Height="50"
+                 Fill="#9384f0"
+                 VerticalAlignment="Bottom"
+                 HorizontalAlignment="Right"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TranslateTransform x:Name="TranslateEllipse2" X="20" Y="25"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <Grid x:Name="GridMainLoginPage"
+              SizeChanged="GridMainLoginPage_SizeChanged">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  CornerRadius="12 0 0 12"
+                  Background="White"
+                  Padding="10">
+                <Frame x:Name="FrameLoginRegister"
+                       Margin="50"/>
+            </Grid>
+
+            <Grid Grid.Column="1"
+                  Background="{StaticResource Gradientbackground}"
+                  CornerRadius="0 12 12 0"
+                  Padding="10">
+                <Border Background="{StaticResource CustomAcrylic}"
+                        Margin="50"
+                        CornerRadius="12">
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
